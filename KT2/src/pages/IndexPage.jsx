@@ -10,7 +10,7 @@ export default function IndexPage() {
   ]);
 
   function InputInfo() {
-    const input = prompt("Введите имя и цену через пробел, пример: Велосипед 1000");
+    const input = prompt("Введите данные, пример: Велосипед 1000");
     if (!input) return alert('Do not get items info'); 
 
     const [name, priceStr] = input.split(" ");
@@ -32,8 +32,8 @@ export default function IndexPage() {
   }
 
   function changeCount(id, type) {
-    setData((prev) =>
-      prev.map((item) => {
+    setData((products) =>
+      products.map((item) => {
           if (item.id !== id) return item;
           let newCount = 0;
           if (type === "plus") {
@@ -54,7 +54,7 @@ export default function IndexPage() {
   }
 
   function deleteProduct(id) {
-    setData((prev) => prev.filter((item) => item.id !== id));
+    setData((products) => products.filter((item) => item.id !== id));
   }
 
   return (
